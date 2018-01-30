@@ -7,16 +7,17 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  dados;
+  valor;
+  entrada;
 
   constructor(public navCtrl: NavController, public http: HttpClient) {
   }
 
   buscarDados(){
     this.http
-      .get('https://api.fixer.io/latest')
+      .get<any>('https://api.fixer.io/latest?base=BRL')
       .subscribe((resposta) => {
-        this.dados = resposta;
+        this.valor = this.entrada * resposta.rates.USD;
       });
   }
 

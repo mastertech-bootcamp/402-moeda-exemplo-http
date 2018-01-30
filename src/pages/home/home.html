@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content padding >
-  <p *ngIf="dados">EUR fica como BRL: {{dados.rates.BRL}}</p>
+  <h1>Conversor R$ para US$</h1>
+  <input type="text" [(ngModel)]="entrada">
+
+  <p *ngIf="valor">O resultado da conversão é {{valor}}</p>
   <button ion-button (click)="buscarDados()">Buscar</button>
 </ion-content>
